@@ -1,6 +1,6 @@
 include_recipe 'stunnel'
 
-node.force_default[:stunnel][:delay] = true
+node.force_default[:stunnel][:delay] = 'yes'
 node.force_default[:stunnel][:verify] = '2'
 
 template '/etc/stunnel/redislabs.crt' do
