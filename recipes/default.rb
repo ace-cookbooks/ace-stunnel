@@ -40,5 +40,5 @@ node.force_default[:stunnel][:ca_file] = '/etc/stunnel/redislabs_ca.pem'
 stunnel_connection 'redis' do
   connect node['ace-stunnel']['connect']
   accept node['ace-stunnel']['accept']
-  notifies :restart, 'service[stunnel]'
+  notifies :restart, 'service[stunnel]', :immediately
 end
