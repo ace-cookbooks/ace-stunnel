@@ -5,6 +5,6 @@ license          "Apache 2.0"
 description      "Installs/Configures stunnel for aceofsales"
 version          "1.0.0"
 
-depends "stunnel"
+depends "simply-stunnel"
 
 provides "ace-stunnel"
