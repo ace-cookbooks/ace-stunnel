@@ -1,0 +1,9 @@
+Eye.application 'stunnel' do
+  working_dir '/etc/stunnel'
+
+  process('stunnel') do
+    pid_file '/var/run/stunnel/stunnel.pid'
+    start_command '/usr/bin/stunnel /etc/stunnel/stunnel.conf'
+    restart_signal 'kill -HUP {PID}'
+  end
+end
