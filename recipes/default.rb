@@ -31,3 +31,10 @@ eye_app 'stunnel' do
   template 'eye-stunnel.conf.erb'
   cookbook 'ace-stunnel'
 end
+
+ruby_block 'ensure stunnel started' do
+  block do
+    true
+  end
+  notifies :start, 'eye_service[stunnel]'
+end
