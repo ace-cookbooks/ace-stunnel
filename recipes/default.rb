@@ -5,8 +5,8 @@ node['ace-stunnel']['files'].each do |name, contents|
   template "/etc/stunnel/#{name}" do
     source 'pem.erb'
     mode 0600
-    owner 'root'
-    group 'root'
+    owner node['stunnel']['user']
+    group node['stunnel']['user']
     variables({
       contents: contents
     })
