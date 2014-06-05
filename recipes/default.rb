@@ -14,6 +14,7 @@ node['ace-stunnel']['files'].each do |name, contents|
 end
 
 node.force_default['eye']['version'] = '0.6'
+node.force_default['eye']['bin'] = '/usr/local/bin/eye'
 node.force_default['stunnel']['global']['foreground'] = 'no'
 node.force_default['stunnel']['global']['pid'] = '/var/run/stunnel/stunnel.pid'
 node.force_default['stunnel']['global']['output'] = '/var/log/stunnel/stunnel.log'
