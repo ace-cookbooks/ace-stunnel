@@ -4,6 +4,6 @@ Eye.application 'stunnel' do
   process('stunnel') do
     pid_file '/var/run/stunnel/stunnel.pid'
     start_command '/usr/bin/stunnel /etc/stunnel/stunnel.conf'
-    restart_signal 'kill -HUP {PID}'
+    restart_command 'kill -HUP {PID}'
   end
 end
