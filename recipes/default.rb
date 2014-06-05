@@ -14,15 +14,15 @@ node['ace-stunnel']['files'].each do |name, contents|
 end
 
 directory '/var/run/stunnel' do
-  owner 'root'
-  group 'root'
+  owner node['stunnel']['user']
+  group node['stunnel']['user']
   mode 00755
   action :create
 end
 
 directory '/var/log/stunnel' do
-  owner 'root'
-  group 'root'
+  owner node['stunnel']['user']
+  group node['stunnel']['user']
   mode 00755
   action :create
 end
