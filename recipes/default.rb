@@ -13,9 +13,6 @@ node['ace-stunnel']['files'].each do |name, contents|
   end
 end
 
-node.force_default['stunnel']['global']['foreground'] = 'no'
-node.force_default['stunnel']['global']['pid'] = '/var/run/stunnel/stunnel.pid'
-node.force_default['stunnel']['global']['output'] = '/var/log/stunnel/stunnel.log'
 eye_app 'stunnel' do
   template 'eye-stunnel.conf.erb'
   cookbook 'ace-stunnel'
