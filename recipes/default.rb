@@ -13,6 +13,20 @@ node['ace-stunnel']['files'].each do |name, contents|
   end
 end
 
+directory node['stunnel']['global']['pid'] do
+  owner 'root'
+  group 'root'
+  mode 00755
+  action :create
+end
+
+directory node['stunnel']['global']['output'] do
+  owner 'root'
+  group 'root'
+  mode 00755
+  action :create
+end
+
 eye_app 'stunnel' do
   template 'eye-stunnel.conf.erb'
   cookbook 'ace-stunnel'
