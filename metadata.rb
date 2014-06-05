@@ -6,6 +6,6 @@ description      "Installs/Configures stunnel for aceofsales"
 version          "1.0.0"
 
 depends "simply-stunnel"
-depends "eye"
+depends "ace-eye"
 
 provides "ace-stunnel"
