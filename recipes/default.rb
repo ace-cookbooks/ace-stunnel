@@ -36,5 +36,5 @@ ruby_block 'ensure stunnel started' do
   block do
     true
   end
-  notifies :start, 'eye_service[stunnel]'
+  notifies :start, 'eye_service[stunnel]', :immediately
 end
