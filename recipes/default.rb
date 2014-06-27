@@ -1,3 +1,6 @@
+chef_gem 'chef-rewind'
+require 'chef/rewind'
+
 include_recipe 'simply-stunnel'
 include_recipe 'ace-eye'
 
@@ -30,11 +33,11 @@ end
 eye_app 'stunnel' do
   template 'eye-stunnel.conf.erb'
   cookbook 'ace-stunnel'
+  restart_timing :immediately
 end
 
-ruby_block 'ensure stunnel started' do
-  block do
-    true
+if node[:opsworks][:activity] != 'setup'
+  rewind 'template[/etc/stunnel/stunnel.conf]' do
+    notifies :restart, 'eye_service[stunnel]', :immediately
   end
-  notifies :start, 'eye_service[stunnel]', :immediately
 end
