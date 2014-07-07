@@ -3,6 +3,7 @@
 require File.join(File.dirname(__FILE__), "config.rb")
 
 Eye.application 'stunnel' do
+  notify :ops
   working_dir '/etc/stunnel'
 
   process('stunnel') do
